@@ -3,4 +3,4 @@
 s6-envdir env
 importas cron_opts cron_opts
 fdmove -c 2 1
-/sbin/crond -f -L 8 ${cron_opts}
+/usr/sbin/crond -f -L 8 ${cron_opts}
