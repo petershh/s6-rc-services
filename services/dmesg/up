@@ -1,0 +1,5 @@
+#!/bin/execlineb -P
+
+s6-envdir /etc/s6-rc/configs/dmesg
+importas -D 1 dmesg_level dmesg_level
+/bin/dmesg -n${dmesg_level}

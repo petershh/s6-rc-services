@@ -1,0 +1,8 @@
+#!/bin/execlineb -P
+
+s6-envdir env
+importas -i port port
+importas agetty_options agetty_options
+importas -D linux term_type term_type
+importas baud_rate baud_rate
+/sbin/getty ${agetty_options} ${port} ${baud_rate} ${term_type}

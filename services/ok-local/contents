@@ -1,0 +1,10 @@
+acpid
+crond
+device-manager
+sysctl
+fifodir-cleanup
+load-kmap
+set-consolefont
+syslogd
+klogd
+urandom

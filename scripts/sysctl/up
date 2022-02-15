@@ -1,0 +1,39 @@
+#!/bin/sh
+
+start()
+{
+	for f in /lib/sysctl.d/*.conf \
+		/usr/lib/sysctl.d/*.conf; do
+
+		if  [ -f /etc/sysctl.d/"${f##*/}" ]; then
+			continue
+		fi
+
+		if [ -f /run/sysctl.d/"${f##*/}" ]; then
+			continue
+		fi
+	
+		if [ -f "$f" ]; then
+			sysctl -q -p "$f"
+		fi
+	done
+
+	for f in /etc/sysctl.d/*.conf; do
+
+		if [ -f /run/sysctl.d/"${f##*/}" ]; then
+			continue
+		fi
+
+		if [ -f "$f" ]; then
+			sysctl -q -p "$f"
+		fi
+	done
+
+	sysctl -q -p /etc/sysctl.conf
+
+	for f in /run/sysctl.d/*.conf; do
+		if [ -f "$f" ]; then
+			sysctl -q -p "$f"
+		fi
+	done
+}

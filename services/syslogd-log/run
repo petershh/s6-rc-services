@@ -1,0 +1,6 @@
+#!/bin/execlineb -P
+
+s6-setuidgid syslog
+umask 027
+exec -c
+s6-log -d3 -- n20 s1000000 - +^authpriv\. +^auth\. /var/log/auth - +^daemon\. /var/log/daemon f /var/log/messages

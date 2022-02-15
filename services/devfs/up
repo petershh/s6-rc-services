@@ -1,0 +1,12 @@
+if { s6-mount -t devtmpfs -o remount,exec,nosuid,mode=0755 dev /dev }
+if { mkdir -p -m 1777 -- /dev/mqueue }
+if { s6-mount -t mqueue -o noexec,nosuid,nodev mqueue /dev/mqueue }
+if { s6-ln -snf /proc/self/fd /dev/fd }
+if { s6-ln -snf /proc/kcore /dev/core }
+if { s6-ln -s loop0 /dev/loop }
+if { s6-ln -s ram0 /dev/ram }
+if { s6-ln -s rtc0 /dev/rtc }
+if { s6-ln -snf /run/shm /dev/shm }
+if { s6-ln -snf /proc/self/fd/0 /dev/stdin }
+if { s6-ln -snf /proc/self/fd/1 /dev/stdout }
+if { s6-ln -snf /proc/self/fd/2 /dev/stderr }

@@ -1,0 +1,4 @@
+s6-envdir /etc/s6-rc/configs/load-kmap/
+importas -D /usr/share/keymaps/xkb/us.map.gz keymap keymap
+pipeline { zcat ${keymap} }
+/sbin/loadkmap

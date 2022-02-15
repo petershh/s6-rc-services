@@ -1,0 +1,6 @@
+#!/bin/execlineb -P
+
+if { mkdir -p /var/empty }
+if { /usr/sbin/sshd -t -o PidFile=none }
+fdmove -c 2 1
+/usr/sbin/sshd -D -e -o PidFile=none

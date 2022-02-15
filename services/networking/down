@@ -1,0 +1,3 @@
+importas PATH PATH
+export PATH ${PATH}:/sbin:/usr/sbin
+exec ifdown -a

@@ -1,0 +1,4 @@
+#!/bin/execlineb -P
+
+if { s6-echo "Bringing system up..." }
+s6-hostname terminus-est

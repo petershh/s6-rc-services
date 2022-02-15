@@ -1,0 +1,6 @@
+if { /usr/sbin/setfont -C /dev/tty1 ter-u28b.psf.gz } 
+if { /usr/sbin/setfont -C /dev/tty2 ter-u28b.psf.gz } 
+if { /usr/sbin/setfont -C /dev/tty3 ter-u28b.psf.gz } 
+if { /usr/sbin/setfont -C /dev/tty4 ter-u28b.psf.gz } 
+if { /usr/sbin/setfont -C /dev/tty5 ter-u28b.psf.gz } 
+if { /usr/sbin/setfont -C /dev/tty6 ter-u28b.psf.gz } 

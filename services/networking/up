@@ -1,0 +1,5 @@
+importas PATH PATH
+export PATH ${PATH}:/sbin:/usr/sbin
+if -n -t {
+	ifup -a
+} ifdown -a

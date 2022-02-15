@@ -1,0 +1,10 @@
+#!/bin/execlineb -P
+
+s6-envdir env
+importas command_args acpid_opts
+s6-envuidgid root
+s6-envuidgid -g wheel
+s6-applyuidgid -U
+umask 027
+fdmove -c 2 1
+/sbin/acpid -f -d ${command_args}

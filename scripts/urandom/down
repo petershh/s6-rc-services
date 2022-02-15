@@ -1,0 +1,5 @@
+#!/bin/sh
+
+umask 077
+dd if=/dev/urandom of=/var/random-seed count=1 2>/dev/null
+

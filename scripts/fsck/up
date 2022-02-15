@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export PATH="$PATH:/sbin:/usr/sbin"
+fsck -A -T -p -t ext4
+needs_reboot=$(( $? & 2 ))
+if [ $needs_reboot -ne 0 ]; then
+	touch /run/fsck_requested_reboot
+	exit 125
+fi
+exit 0

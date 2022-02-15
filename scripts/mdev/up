@@ -1,0 +1,17 @@
+#!/bin/sh
+
+mkdir -p /dev
+
+# use mdev for hotplug
+echo "/sbin/mdev" > /proc/sys/kernel/hotplug
+
+# mdev -s will not create /dev/usb[1-9] devices with recent kernels
+# so we trigger hotplug events for usb for now
+for i in $(find /sys/devices -name 'usb[0-9]*'); do
+	[ -e $i/uevent ] && echo add > $i/uevent
+done
+
+export PATH="$PATH:/sbin:/usr/sbin"
+
+# create devices
+/sbin/mdev -s
