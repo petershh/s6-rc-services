@@ -2,3 +2,4 @@ devfs
 mount-root
 mount-swap
 mount-tmpfs
+mount-boot
